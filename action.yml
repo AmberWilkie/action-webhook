@@ -4,6 +4,9 @@ inputs:
   webhook_url:  # url to hit
     description: 'url'
     required: true
+outputs:
+  response: # id of output
+    description: 'Puffbot will say things to you'
 runs:
   using: 'node12'
   main: 'index.js'

@@ -15,7 +15,7 @@ const callWebhook = async _ => {
     if (!response.status === 200) {
       core.setFailed('Puffbot detects a problem!');
     }
-    core.setOutput(response.data)
+    core.setOutput('response', response.data)
   } catch (error) {
     console.log('AMBER ---------------------> error:', error)
     core.setFailed(error.message);
