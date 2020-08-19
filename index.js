@@ -13,9 +13,9 @@ const callWebhook = async _ => {
     const response = await axios.post(url, payload)
     console.log('AMBER ---------------------> response: ', response.data)
     if (!response.status === 200) {
-      throw new Error({message: 'Puffbot detects a problem!'})
+      core.setFailed('Puffbot detects a problem!');
     }
-    return response.data
+    core.setOutput(response.data)
   } catch (error) {
     console.log('AMBER ---------------------> error:', error)
     core.setFailed(error.message);
