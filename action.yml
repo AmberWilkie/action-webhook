@@ -1,0 +1,9 @@
+name: 'Webhook'
+description: 'Call a webhook from a github action'
+inputs:
+  webhook_url:  # url to hit
+    description: 'url'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
