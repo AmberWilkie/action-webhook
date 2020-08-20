@@ -16,6 +16,6 @@ The response from the webhook. Will return an empty string if there is no respon
 
 ## Example usage
 
-uses: amberwilkie/action-webhook@main
+uses: amberwilkie/action-webhook@v1
 with:
   webhook_url: 'https://www.google.com'
