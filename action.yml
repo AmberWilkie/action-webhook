@@ -1,4 +1,4 @@
-name: 'Webhook'
+name: 'Simple Webhook with Event Payload'
 description: 'Call a webhook from a github action'
 inputs:
   webhook_url:  # url to hit
