@@ -6,7 +6,7 @@ inputs:
     required: true
 outputs:
   response: # id of output
-    description: 'Puffbot will say things to you'
+    description: 'Response from webhook'
 runs:
   using: 'node12'
   main: 'index.js'
