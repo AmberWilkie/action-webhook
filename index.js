@@ -6,18 +6,15 @@ const callWebhook = async _ => {
   try {
     const url = core.getInput('webhook_url');
     console.log(`url: ${url}!`);
-
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
-    // console.log(`The event payload: ${payload}`);
+    const payload = JSON.stringify(github.context.payload)
+    console.log(`The event payload: ${payload}`);
     const response = await axios.post(url, payload)
-    console.log('AMBER ---------------------> response: ', response.data)
-    if (!response.status === 200) {
-      core.setFailed('Puffbot detects a problem!');
+    if (![200, 201].includes(response.status === 200)) {
+      core.setFailed('There was a problem! ', response.error);
     }
     core.setOutput('response', response.data)
   } catch (error) {
-    console.log('AMBER ---------------------> error:', error)
+    console.log('error: ', error)
     core.setFailed(error.message);
   }
 }
